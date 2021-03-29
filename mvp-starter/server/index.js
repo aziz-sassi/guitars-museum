@@ -7,12 +7,9 @@ const { fn, Callbacks } = require('jquery');
 
 var app = express();
 
-// UNCOMMENT FOR REACT
 app.use(express.static(__dirname + '/../react-client/dist'));
 app.use(bodyParser.json())
-// UNCOMMENT FOR ANGULAR
-// app.use(express.static(__dirname + '/../angular-client'));
-// app.use(express.static(__dirname + '/../node_modules'));
+
 
 app.get('/items', function (req, res) {
   db.selectAll(function(err, data) {
@@ -30,6 +27,12 @@ app.post('/postguitar',function (req,res) {
 })
 app.patch('/likesupdate/:id',(req,res)=>{
   db.updatelike([req.params.id,req.body.likes],(err,result)=>{
+    err ? console.log(err,'errrrrr') : res.status(201).json(result)
+
+  })
+})
+app.patch('/likesdelete/:id',(req,res)=>{
+  db.updatedeletelike([req.params.id,req.body.likes],(err,result)=>{
     err ? console.log(err,'errrrrr') : res.status(201).json(result)
 
   })

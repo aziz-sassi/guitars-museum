@@ -22,7 +22,8 @@ class PostGuitar extends React.Component{
     this.setState({imageUrl:e.target.value})
   }
   handleyearchange(e){
-    this.setState({year: e.target.value})
+    this.setState({year: e.target.value,
+    likes : 0})
   }
   clickhandle(e){
     e.preventDefault();

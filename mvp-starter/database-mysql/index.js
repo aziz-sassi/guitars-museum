@@ -1,14 +1,16 @@
 var mysql = require('mysql');
 
-var connection = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'root',
-  password : '123',
-  database : 'items'
-});
+const mysqlconfig = require ("./config.js")
+const connection = mysql.createConnection(mysqlconfig);
+
+
+
+
+
+
 
 var selectAll = function(callback) {
-  connection.query('SELECT * FROM guitars', function(err, results, fields) {
+  connection.query('SELECT * FROM guitars', function(err, results) {
     if(err) {
       callback(err, null);
     } else {
@@ -16,17 +18,43 @@ var selectAll = function(callback) {
     }
   });
 };
+
+
+
+
 var postguitar = function(params,callback){
   let syntax =`INSERT INTO guitars ( model, imageUrl,year,likes) VALUES (?,?,?,?)`
 connection.query(syntax,params,(err,result)=>{
   return err ? callback(err,null) : callback(null,result)
 })
 }
+
+
+
+
+
+
+
 var updatelike =function(params,callback){
-  connection.query(`UPDATE guitars SET likes = ? WHERE id= ?`,params,(err,results)=>{
+  const syntax = `UPDATE guitars SET likes = likes + 1 WHERE id= ?`
+  connection.query(syntax,params,(err,results)=>{
     return err ? callback(err,null) : callback(null,results)
   })
 }
+var updatedeletelike =function(params,callback){
+  const syntax = `UPDATE guitars SET likes = likes - 1 WHERE id= ?`
+  connection.query(syntax,params,(err,results)=>{
+    return err ? callback(err,null) : callback(null,results)
+  })
+}
+
+
+
+
+
+
+
+
 var deleteitem = function (params,callback) {
   const syntax = `DELETE FROM guitars WHERE id = ?`;
   connection.query(syntax,params,(err,results)=>{
@@ -34,9 +62,14 @@ var deleteitem = function (params,callback) {
   })
 }
 
+
+
+
+
 module.exports={
   selectAll ,
   postguitar,
   updatelike,
-  deleteitem
+  deleteitem,
+  updatedeletelike
 }

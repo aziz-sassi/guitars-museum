@@ -55,10 +55,15 @@ h2 {
 button {
   cursor: pointer;
   border: none;
-  border-radius: 3px;
+  border-radius: 20px;
   font-family: 'PT Serif', sans-serif;
-  color: #ECF0F1;
-  background-color: #E74C3C;
+  color: #161616;
+  background-color: #cde73c;
+}
+.mybutton{
+  width: 80%;
+  height: 40px;
+  margin: 40px;
 }
 
 .post {
@@ -81,7 +86,7 @@ button {
 }
 
 .post-byline {
-  color: #777777;
+  color: #4902579f;
   font-size: .8em;
   margin-bottom: 5%;
 }

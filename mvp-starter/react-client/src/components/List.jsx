@@ -6,10 +6,12 @@ class List extends React.Component {
 constructor(props){
 super(props)
 
-this.handlelikes = this.handlelikes.bind(this)
-// this.ptchy=this.ptchy.bind(this)
+
+this.handlereducelikes = this.handlereducelikes.bind(this);
+this.handledelete = this.handledelete.bind(this);
+this.handlelikes =this.handlelikes.bind(this);
 }
-handlelikes(id){
+handledelete(id){
 axios.delete('/deleteitems/'+id,[this.props.items])
 
 .then(response=>{
@@ -20,30 +22,44 @@ axios.delete('/deleteitems/'+id,[this.props.items])
   throw err;
 })
 }
-  // ptchy(id){
-  //   axios.patch(`/likesupdate/${id}`,{likes:this.state.liky})
-  //   .then(response=>{
-  //     console.log(response)
-      
-  //   })
-  //   .catch(err=>{
-  //     console.log(err)
-  //   })
-  // }
-  
+handlelikes(id){
+  axios.patch(`/likesupdate/`+id)
+
+  .then(response=>{
+    console.log(response)
+  })
+  .catch(err=>{
+    throw err;
+  })
+}
+handlereducelikes(id){
+  axios.patch(`/likesdelete/`+id)
+
+  .then(response=>{
+    console.log(response)
+  })
+  .catch(err=>{
+    throw err;
+  })
+}
 
 
+ 
 render() {
   return(
     <div>
     <h4> List of rare guitars </h4>
     There are { this.props.items.length } items.
-    { this.props.items.map(item =><div key = {item.id}>
-      <h3>{item.model}</h3>
+    { this.props.items.map(item =><div className = 'post' key = {item.id}>
+      <h3 className = 'post-title'>{item.model}</h3>
 
-  <img src = {item.imageUrl}/>
-  <h3>made in {item.year}</h3>
-  <button onClick= {()=>this.handlelikes(item.id)} >delete</button>
+  <img className = "post-image" src = {item.imageUrl}/>
+  <h3 className = "post-byline">made in {item.year}</h3>
+  <button className = "post-byline" onClick= {()=>this.handlelikes(item.id)}> like</button> 
+  <button className = "post-byline" onClick = {this.handlereducelikes(item.id)}>dislike</button>
+
+  <h3 className = "post-byline">{item.likes} people liked this</h3>
+  <button className = "post-byline" onClick= {()=>this.handledelete(item.id)} >delete</button>
     </div>)}
   </div>
   )
