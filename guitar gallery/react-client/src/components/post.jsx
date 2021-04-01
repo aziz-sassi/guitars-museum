@@ -12,7 +12,11 @@ class PostGuitar extends React.Component{
     this.handlemodelChange = this.handlemodelChange.bind(this);
     this.handleimagechange = this.handleimagechange.bind(this);
     this.handleyearchange = this.handleyearchange.bind(this);
-    this.clickhandle = this.clickhandle.bind(this)
+    this.clickhandle = this.clickhandle.bind(this);
+    this.updatehandler = this.updatehandler.bind(this);
+  }
+  updatehandler (){
+    this.props.updater()
   }
 
   handlemodelChange(e) {
@@ -48,12 +52,20 @@ class PostGuitar extends React.Component{
     .then(res => {
       console.log(res);
       console.log(res.data);
+      this.setState({
+        model : "",
+      imageUrl : "",
+      year : 0
+    })
+      this.updatehandler();
+
     })
   }
   render(){
     return(
       <div>
 <h2>post your guitar</h2>
+<div className = "postinputs">
 <h4>your guitar model:</h4>
 <input type = "text" id = "modelinput" onChange = {this.handlemodelChange}/>
 <h4>your imageUrl:</h4>
@@ -62,7 +74,8 @@ class PostGuitar extends React.Component{
 <input type = "number" id = "yearinput" onChange = {this.handleyearchange}/>
 <br/>
 <br/>
-<button type = 'submit' onClick = {this.clickhandle}>post item</button>
+<button className = "postbutton" type = 'submit' onClick = {this.clickhandle}>post item</button>
+</div>
 
     </div>
     )

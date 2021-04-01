@@ -7,6 +7,59 @@ body {
   background-color: #ECF0F1;
   font-size: 1.1em;
 }
+.pagelogo{
+  color: white;
+}
+.pagelogo:hover{
+  
+    color: #333;
+  
+}
+.contact-us{
+	position: absolute;
+	width: 600px;
+	height: 300px;
+	margin: 7% 30%;
+	text-align: center;
+}
+.contact-us h1{
+  margin-left: 35%;
+  margin-bottom: 10%;
+}
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.fa:hover {
+  opacity: 0.7;
+}
+
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-github {
+  background: #071724;
+  color: white;
+}
+.fa-instagram {
+  background: #d857e9;
+  color: white;
+}
+.fa-linkedin {
+  background: #0072b1;
+  color: white;
+}
+.fa-gmail {
+  background: #BB001B;
+  color: white;
+}
 
 h2 {
   color: #2C3E50;
@@ -53,6 +106,18 @@ h2 {
 }
 
 button {
+  font-size: 100%;   
+
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  font-family: 'PT Serif', sans-serif;
+  
+}
+.mybutton{
+  width: 80%;
+  height: 40px;
+  margin: 40px;
   cursor: pointer;
   border: none;
   border-radius: 20px;
@@ -60,12 +125,48 @@ button {
   color: #161616;
   background-color: #cde73c;
 }
-.mybutton{
-  width: 80%;
+.postinputs{
+  margin-left: 20px;
+}
+.postbutton{
+  width: 8%;
+  height: 40px;
+  cursor: pointer;
+  border: none;
+  border-radius: 20px;
+  font-family: 'PT Serif', sans-serif;
+  color: #161616;
+  background-color: #cde73c;
+}
+.myintrobutton{
+  width: 20%;
   height: 40px;
   margin: 40px;
+  cursor: pointer;
+  border: none;
+  border-radius: 20px;
+  font-family: 'PT Serif', sans-serif;
+  color: #161616;
+  background-color: #cde73c;
 }
+.like{
+  width: 10%;
+  height: 30px;
+  margin: 20px;
+  border: none;
+  color: #ffffff;
+  background-color: #0086f3;
 
+}
+.delete{
+  width: 10%;
+  height: 30px;
+  margin: 20px;
+  border: none;
+  color: #ffffff;
+  background-color: #f30000;
+
+}
 .post {
   width: 80%;
   margin: 0 auto;
@@ -76,17 +177,19 @@ button {
   padding: 5px 20px 5px 20px;
 }
 
+
 .post-title {
   font-family: 'Francois One';
   line-height: 1.5em;
 }
 
 .post-image {
-  max-width: 100%;
+  width: 50%;
+  height: 50%;
 }
 
 .post-byline {
-  color: #4902579f;
+  color: #0000009f;
   font-size: .8em;
   margin-bottom: 5%;
 }
@@ -96,7 +199,7 @@ button {
 }
 
 .create h2 {
-  border-bottom: 1px solid #777777;
+  border-bottom: 1px solid #0c0c0c;
   width: 90%;
   font-family: 'Francois One';
 }
@@ -232,7 +335,7 @@ button {
 
 .nav-selected {
   padding: 5px;
-  color: rgb(209, 240, 70);
+  color: rgb(85, 87, 77);
   font-weight: bold;
   margin-right: 5px;
   font-size: 1.1em;
