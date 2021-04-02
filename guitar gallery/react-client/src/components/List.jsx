@@ -6,8 +6,7 @@ class List extends React.Component {
 constructor(props){
 super(props)
 this.state = {
-  likes : 0,
-  torender : "like"
+  likes : 0
 
 }
 
@@ -38,15 +37,13 @@ axios.delete('/deleteitems/'+id,[this.props.items])
 handlelikingclick(id){
   if (this.state.likes === 0) {
     this.setState({
-      likes : 1,
-    torender : "dislike"
+      likes : 1
   })
     this.handlelikes(id);
     console.log("liked successfully")
   }else if (this.state.likes===1) {
     this.setState({
-      likes : 0,
-    torender : "like"
+      likes : 0
     })
     this.handlereducelikes(id)
     console.log("disliked successfully")
@@ -99,7 +96,7 @@ render() {
 
   <h4 className = "post-byline">made in {item.year}</h4>
   <div className = "likeanddelete">
-  <button className = "like" onClick= {()=>this.handlelikingclick(item.id)}>{this.state.torender}</button> 
+  <button className = "like" onClick= {()=>this.handlelikingclick(item.id)}>like</button> 
     <button className = "delete" onClick= {()=>this.handledelete(item.id)} >delete</button>
     </div>
 <h3 className = "post-byline">{item.likes} people liked this</h3>
