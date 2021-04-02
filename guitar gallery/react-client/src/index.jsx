@@ -46,7 +46,7 @@ class App extends React.Component {
           return <List items={this.state.items} updater = {this.update}/>
         } else if (view === 'post'){
           
-            return <PostGuitar updater = {this.update}/> 
+            return <PostGuitar updater = {this.update} gotoitems = {this.changeView}/> 
           
           
         }

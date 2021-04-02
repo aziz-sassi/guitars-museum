@@ -14,9 +14,13 @@ class PostGuitar extends React.Component{
     this.handleyearchange = this.handleyearchange.bind(this);
     this.clickhandle = this.clickhandle.bind(this);
     this.updatehandler = this.updatehandler.bind(this);
+    this.changeview = this.changeview.bind(this);
   }
   updatehandler (){
     this.props.updater()
+  }
+  changeview(){
+    this.props.gotoitems("feed")
   }
 
   handlemodelChange(e) {
@@ -58,6 +62,7 @@ class PostGuitar extends React.Component{
       year : 0
     })
       this.updatehandler();
+      this.changeview();
 
     })
   }
